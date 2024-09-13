@@ -16,85 +16,48 @@ from typing import List, TypeVar
 
 
 def absolute(n: int) -> int:
-    """Gives the absolute value of the passed in number. Cannot use the built in
-    function `abs`.
-
-    Args:
-        n - the number to take the absolute value of
-
-    Returns:
-        the absolute value of the passed in number
-    """
-    raise NotImplementedError("absolute")
-
-
+    if(n<0):
+        return -1*n
+    else:
+        return n
+assert absolute(3) == 3, "absolute 3 failed"
+assert absolute(0) == 0, "absolute 0 failed"
 def factorial(n: int) -> int:
-    """Takes a number n, and computes the factorial n! You can assume the passed in
-    number will be positive
+    x=1
+    while(n>0):
+       x=x*n
+       n=n-1
+    return x 
+assert factorial(4) == 24, "factorial 4 failed"
+assert factorial(1) == 1, "factorial 1 failed"
 
-    Args:
-        n - the number to compute factorial of
-
-    Returns:
-        factorial of the passed in number
-    """
-    raise NotImplementedError("factorial")
-
-
-T = TypeVar("T")
-
+T=TypeVar('T')
 
 def every_other(lst: List[T]) -> List[T]:
-    """Takes a list and returns a list of every other element in the list, starting with
-    the first.
-
-    Args:
-        lst - a list of any (constrained by type T to be the same type as the returned
-            list)
-
-    Returns:
-        a list of every of other item in the original list starting with the first
-    """
-    raise NotImplementedError("every_other")
-
+    outputList = []
+    i=0
+    while(i<len(lst)):
+        outputList.append(lst(i))
+        i+=2
+    return outputList
 
 def sum_list(lst: List[int]) -> int:
-    """Takes a list of numbers, and returns the sum of the numbers in that list. Cannot
-    use the built in function `sum`.
-
-    Args:
-        lst - a list of numbers
-
-    Returns:
-        the sum of the passed in list
-    """
-    raise NotImplementedError("sum_list")
+    sumOutput = 0
+    for x in range(0,len(lst)):
+        sumOutput += lst(x)
+    return sumOutput
 
 
 def mean(lst: List[int]) -> float:
-    """Takes a list of numbers, and returns the mean of the numbers.
-
-    Args:
-        lst - a list of numbers
-
-    Returns:
-        the mean of the passed in list
-    """
-    raise NotImplementedError("mean")
+    meanOutput = 0
+    for x in range(0,len(lst)):
+        meanOutput += len(x)
+    meanOutput = meanOutput // len(x)
+    return meanOutput
 
 
 def median(lst: List[int]) -> float:
-    """Takes an ordered list of numbers, and returns the median of the numbers.
-
-    If the list has an even number of values, it computes the mean of the two center
-    values.
-
-    Args:
-        lst - an ordered list of numbers
-
-    Returns:
-        the median of the passed in list
-    """
+    
     raise NotImplementedError("median")
 
 
