@@ -1,4 +1,6 @@
 # Complete your individualized AI problems here
+
+from typing import List, TypeVar
 """1. Number Properties
 Write a program that takes a number as input and prints whether the number is even or odd.
 2. Sum of Integers
@@ -31,4 +33,87 @@ Write a program that takes a list of integers and prints a list of only the uniq
 Write a simple game where the program randomly selects a number between 1 and 100, and the user has to guess the number. The program should provide feedback if the guess is too high, too low, or correct.
 These problems will help you practice a variety of basic Python skills, including loops, conditionals, functions, and working with lists and strings. Feel free to reach out if you have questions about any of the problems!"""
 
-def evenOdd()
+def evenOdd(n: int) -> str:
+    if(n%2==0):
+        return "even"
+    else:
+        return "odd"
+assert evenOdd(1) == "odd", "evenOdd 1 fail"
+assert evenOdd(2) == "even", "evenOdd 2 fail"
+
+def sumIntegers(n: int) -> int:
+    output=0
+    while(n>0):
+        output += n
+        n -= 1
+    return output
+assert sumIntegers(5) == 5+4+3+2+1, "sumIntegers 5 fail"
+
+def factorial(n: int) -> int:
+    x=1
+    while(n>0):
+       x=x*n
+       n-=1
+    return x 
+assert factorial(4) == 24, "factorial 4 failed"
+assert factorial(1) == 1, "factorial 1 failed"
+
+def palindromeCheck(string: str) -> bool:
+    stringBackward = ""
+    for i in range(0,len(string)):
+        stringBackward.add(string[len(string)-i])
+    if string == stringBackward:
+        return True
+    else:
+        return False
+assert palindromeCheck("ufoTofu") == True, "palindromeCheck UFO Tofu fail"
+assert palindromeCheck("Notapalindrome") == False, "palindromeCheck Notapalindrome fail"
+
+def multiplicationTable():
+    for i in range(1,11):
+        for j in range(1,11):
+            product = i*j
+            print(product)
+
+def primeCheck(n: int) -> bool:
+        if(n % 2 == 0):
+            return False
+        for x in range(3,n,2):
+          if(n % x == 0):
+                return False
+        return True
+assert primeCheck(4) == False, "Prime 4 canceled"
+assert primeCheck(5) == True, "primeCheck 5 fail"
+
+def sumList(lst: List[int]) -> int:
+    sumOutput = 0
+    for x in range(0,len(lst)):
+        sumOutput += lst[x]
+    return sumOutput
+
+assert sumList([1,2,-5]) == -2, "sumList 1, 2, -5 fail"
+
+def convertToFarenheit(C: float) -> float:
+    F = (C*9/5)+32
+    return F
+
+assert convertToFarenheit(0) == 32, "convertToFarenheit 0 fail"
+assert convertToFarenheit(22) == 71.6, "converToFarenheit 22 fail"
+
+def vowelCount(string: str) -> int:
+    count = 0
+    vowels = ["a","e","i","o","u","A","E","I","O","U"]
+    for i in range(0,len(string)):
+        for j in range(0,len(vowels)):
+            if string[i] == vowels[j]:
+                count += 1
+    return count
+
+assert vowelCount("vOwel") == 2, "vowelCount vOwel fail"
+
+def printOdd(lst: List[int]):
+    for x in range(0,len(lst)):
+        if lst[x] % 2 != 0:
+            print(lst[x])
+
+
