@@ -36,51 +36,40 @@ T=TypeVar('T')
 def every_other(lst: List[T]) -> List[T]:
     outputList = []
     i=0
-    while(i<len(lst)):
-        outputList.append(lst(i))
+    while(i<=len(lst)-1):
+        outputList.append(lst[i])
         i+=2
     return outputList
 
 def sum_list(lst: List[int]) -> int:
     sumOutput = 0
     for x in range(0,len(lst)):
-        sumOutput += lst(x)
+        sumOutput += lst[x]
     return sumOutput
 
 
 def mean(lst: List[int]) -> float:
     meanOutput = 0
     for x in range(0,len(lst)):
-        meanOutput += len(x)
-    meanOutput = meanOutput // len(x)
+        meanOutput += lst[x]
+    meanOutput = meanOutput / len(lst)
     return meanOutput
 
 
 def median(lst: List[int]) -> float:
-    
-    raise NotImplementedError("median")
+    if len(lst)%2 == 0:
+        return (lst[len(lst)/2] + lst[(len(lst)/2)-1])/2
+    else:
+        return lst[(len(lst)-1)//2]
 
 
 def duck_duck_goose(lst: List[str]) -> List[str]:
-    """Given an list of names (strings), play 'duck duck goose' with it, knocking out
-    every third name (wrapping around) until only two names are left.
-
-    In other words, when you hit the end of the list, wrap around and keep counting from
-    where you were.
-
-    For example, if given this list ['Nathan', 'Sasha', 'Sara', 'Jennie'], you'd first
-    knock out Sara. Then first 'duck' on Jennie, wrap around to 'duck' on Nathan and
-    'goose' on Sasha - knocking him out and leaving only Nathan and Jennie.
-
-    You may assume the list has 3+ names to start
-
-    Args:
-        lst - a list of names (strings)
-
-    Returns:
-        the resulting list after playing duck duck goose
-    """
-    raise NotImplementedError("duck_duck_goose")
+        i=0
+        while len(lst) > 2:
+            i+=2
+            i = i % len(lst)
+            lst.pop(i)
+        return lst 
 
 
 # this line causes the nested code to be skipped if the file is imported instead of run
